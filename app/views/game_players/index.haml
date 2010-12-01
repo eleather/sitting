@@ -1,0 +1,31 @@
+.content#game_players_index
+  %h1 
+    Game Players
+    
+  %p#new_link= link_to 'New Game_player', new_game_player_path
+
+  %table
+    %tr
+      %th.game_id_label= GamePlayer.human_attribute_name :game_id
+      %th.player_id_label= GamePlayer.human_attribute_name :player_id
+      %th.travian_userid_label= GamePlayer.human_attribute_name :travian_userid
+      %th.travian_username_label= GamePlayer.human_attribute_name :travian_username
+      %th.tribe_id_label= GamePlayer.human_attribute_name :tribe_id
+      %th.alliance_member_id_label= GamePlayer.human_attribute_name :alliance_member_id
+      %th.comments_label= GamePlayer.human_attribute_name :comments
+      %th
+      %th
+      %th
+  
+    - @game_players.each do |game_player|
+      %tr{ :class => cycle(:odd, :even) }
+        %td.game_id_field= link_to_association(game_player, 'game')
+        %td.player_id_field= link_to_association(game_player, 'player')
+        %td.travian_userid_field= game_player.travian_userid
+        %td.travian_username_field= game_player.travian_username
+        %td.tribe_id_field= link_to_association(game_player, 'tribe')
+        %td.alliance_member_id_field= link_to_association(game_player, 'alliance_member')
+        %td.comments_field= game_player.comments
+        %td.action= link_to 'Show', game_player
+        %td.action= link_to 'Edit', edit_game_player_path(game_player)
+        %td.action= link_to 'Destroy', game_player, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,22 @@
+#<%= singular_name %>_form
+  = form_for(@<%= singular_name %>) do |f|
+    - if @<%= singular_name %>.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@<%= singular_name %>.errors.count, 'error')} prohibited this user from being saved:"
+      
+        %ul
+          - @<%= singular_name %>.errors.full_messages.each do |msg|
+            %li= msg
+  
+<% for attribute in attributes -%>
+    .field#<%= attribute.name %>_field
+      = f.label :<%= attribute.name %>
+      %br
+<% if attribute.field_type and attribute.name =~ /\A.+_id\Z/ -%>
+      = render_form_association_field(f, '<%= attribute.name.titleize %>')
+<% else -%>
+      = f.<%= attribute.field_type %> :<%= attribute.name %>
+<% end -%>
+<% end -%>
+    .actions
+      = f.submit

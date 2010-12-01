@@ -1,0 +1,28 @@
+.content#game_show
+  %h1 
+    = link_to 'Games', games_path
+    > 
+    = @game.pretty_name
+
+  %p#notice= notice
+  
+  %p#edit_link= link_to 'Edit', edit_game_path(@game)
+
+  %p.field#name_field
+    %b.label= Game.human_attribute_name :name
+    %span.value= @game.name
+  %p.field#server_address_field
+    %b.label= Game.human_attribute_name :server_address
+    %span.value= @game.server_address
+  %p.field#started_at_field
+    %b.label= Game.human_attribute_name :started_at
+    %span.value= @game.started_at
+  %p.field#ended_at_field
+    %b.label= Game.human_attribute_name :ended_at
+    %span.value= @game.ended_at
+  %p.field#alliance_name_field
+    %b.label= Game.human_attribute_name :alliance_name
+    %span.value= @game.alliance_name
+  %p.field#comments_field
+    %b.label= Game.human_attribute_name :comments
+    %span.value= @game.comments

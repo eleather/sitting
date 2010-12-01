@@ -1,0 +1,12 @@
+%html
+  %head
+    %title Travian Sitting Tracker
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+
+  %body
+    #top_navigation
+      = link_to 'Players', players_path
+      = link_to 'Game Players', game_players_path
+    = yield

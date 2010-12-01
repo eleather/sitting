@@ -1,0 +1,29 @@
+.content#games_index
+  %h1 
+    Games
+    
+  %p#new_link= link_to 'New Game', new_game_path
+
+  %table
+    %tr
+      %th.name_label= Game.human_attribute_name :name
+      %th.server_address_label= Game.human_attribute_name :server_address
+      %th.started_at_label= Game.human_attribute_name :started_at
+      %th.ended_at_label= Game.human_attribute_name :ended_at
+      %th.alliance_name_label= Game.human_attribute_name :alliance_name
+      %th.comments_label= Game.human_attribute_name :comments
+      %th
+      %th
+      %th
+  
+    - @games.each do |game|
+      %tr{ :class => cycle(:odd, :even) }
+        %td.name_field= game.name
+        %td.server_address_field= game.server_address
+        %td.started_at_field= game.started_at
+        %td.ended_at_field= game.ended_at
+        %td.alliance_name_field= game.alliance_name
+        %td.comments_field= game.comments
+        %td.action= link_to 'Show', game
+        %td.action= link_to 'Edit', edit_game_path(game)
+        %td.action= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete

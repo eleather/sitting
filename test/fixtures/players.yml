@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  timezone: 
+  comments: MyText
+
+two:
+  name: MyString
+  timezone: 
+  comments: MyText

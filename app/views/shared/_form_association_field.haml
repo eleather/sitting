@@ -1,0 +1,6 @@
+- if Kernel.const_get(class_name.gsub(/\s/, '').camelize).all.any?
+  = f.select "#{(field_name || class_name).underscore}_id", Kernel.const_get(class_name.gsub(/\s/, '').camelize).all.map {|u| [u.pretty_name, u.id]}
+- else
+  = "You haven't created any #{class_name.pluralize}.  "
+  = link_to 'Click here', url_for(:controller => class_name.tableize, :action => 'new')
+  to add one.

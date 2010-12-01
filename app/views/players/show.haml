@@ -1,0 +1,19 @@
+.content#player_show
+  %h1 
+    = link_to 'Players', players_path
+    > 
+    = @player.pretty_name
+
+  %p#notice= notice
+  
+  %p#edit_link= link_to 'Edit', edit_player_path(@player)
+
+  %p.field#name_field
+    %b.label= Player.human_attribute_name :name
+    %span.value= @player.name
+  %p.field#timezone_field
+    %b.label= Player.human_attribute_name :timezone
+    %span.value= @player.timezone
+  %p.field#comments_field
+    %b.label= Player.human_attribute_name :comments
+    %span.value= @player.comments

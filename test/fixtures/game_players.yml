@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  game_id: 1
+  travian_user_id: 1
+  travian_username: MyString
+  tribe_id: 1
+  alliance_member_id: 1
+  comments: MyText
+
+two:
+  game_id: 1
+  travian_user_id: 1
+  travian_username: MyString
+  tribe_id: 1
+  alliance_member_id: 1
+  comments: MyText

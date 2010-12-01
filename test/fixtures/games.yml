@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  server_address: MyString
+  started_at: 2010-11-30 00:13:22
+  ended_at: 2010-11-30 00:13:22
+  alliance_name: MyString
+  comments: MyText
+
+two:
+  name: MyString
+  server_address: MyString
+  started_at: 2010-11-30 00:13:22
+  ended_at: 2010-11-30 00:13:22
+  alliance_name: MyString
+  comments: MyText

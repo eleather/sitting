@@ -1,0 +1,6 @@
+.content#<%= singular_name %>_new
+  %h1 
+    = link_to '<%= plural_name.titleize %>', <%= plural_name %>_path
+    > New <%= singular_name.titleize %>
+
+  = render 'form'

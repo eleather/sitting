@@ -1,0 +1,23 @@
+.content#players_index
+  %h1 
+    Players
+    
+  %p#new_link= link_to 'New Player', new_player_path
+
+  %table
+    %tr
+      %th.name_label= Player.human_attribute_name :name
+      %th.timezone_label= Player.human_attribute_name :timezone
+      %th.comments_label= Player.human_attribute_name :comments
+      %th
+      %th
+      %th
+  
+    - @players.each do |player|
+      %tr{ :class => cycle(:odd, :even) }
+        %td.name_field= player.name
+        %td.timezone_field= player.timezone
+        %td.comments_field= player.comments
+        %td.action= link_to 'Show', player
+        %td.action= link_to 'Edit', edit_player_path(player)
+        %td.action= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete

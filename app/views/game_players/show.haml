@@ -1,0 +1,31 @@
+.content#game_player_show
+  %h1 
+    = link_to 'Game Players', game_players_path
+    > 
+    = @game_player.pretty_name
+
+  %p#notice= notice
+  
+  %p#edit_link= link_to 'Edit', edit_game_player_path(@game_player)
+
+  %p.field#game_id_field
+    %b.label= GamePlayer.human_attribute_name :game_id
+    = link_to_association(@game_player, 'game')
+  %p.field#player_id_field
+    %b.label= GamePlayer.human_attribute_name :player_id
+    = link_to_association(@game_player, 'player')
+  %p.field#travian_userid_field
+    %b.label= GamePlayer.human_attribute_name :travian_userid
+    %span.value= @game_player.travian_userid
+  %p.field#travian_username_field
+    %b.label= GamePlayer.human_attribute_name :travian_username
+    %span.value= @game_player.travian_username
+  %p.field#tribe_id_field
+    %b.label= GamePlayer.human_attribute_name :tribe_id
+    = link_to_association(@game_player, 'tribe')
+  %p.field#alliance_member_id_field
+    %b.label= GamePlayer.human_attribute_name :alliance_member_id
+    = link_to_association(@game_player, 'alliance_member')
+  %p.field#comments_field
+    %b.label= GamePlayer.human_attribute_name :comments
+    %span.value= @game_player.comments

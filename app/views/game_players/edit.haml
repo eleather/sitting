@@ -1,0 +1,8 @@
+.content#game_player_edit
+  %h1 
+    = link_to 'Game Players', game_players_path
+    > 
+    = link_to @game_player.pretty_name, @game_player
+    > Edit
+
+  = render 'form'

@@ -1,0 +1,27 @@
+.content#<%= plural_name %>_index
+  %h1 
+    <%= plural_name.titleize %>
+    
+  %p#new_link= link_to 'New <%= singular_name.capitalize %>', new_<%= singular_name %>_path
+
+  %table
+    %tr
+<% for attribute in attributes -%>
+      %th.<%= attribute.name %>_label= <%= class_name %>.human_attribute_name :<%= attribute.name %>
+<% end -%>
+      %th
+      %th
+      %th
+  
+    - @<%= plural_name %>.each do |<%= singular_name %>|
+      %tr{ :class => cycle(:odd, :even) }
+<% for attribute in attributes -%>
+<% if attribute.name =~ /\A(.+)_id\Z/ && association_name = $1 -%>
+        %td.<%= attribute.name %>_field= link_to_association(<%= singular_name %>, '<%= $1 %>')
+<% else -%>
+        %td.<%= attribute.name %>_field= <%= singular_name %>.<%= attribute.name %>
+<% end -%>
+<% end -%>
+        %td.action= link_to 'Show', <%= singular_name %>
+        %td.action= link_to 'Edit', edit_<%= singular_name %>_path(<%= singular_name %>)
+        %td.action= link_to 'Destroy', <%= singular_name %>, :confirm => 'Are you sure?', :method => :delete

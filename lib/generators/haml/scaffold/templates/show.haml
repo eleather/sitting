@@ -1,0 +1,19 @@
+.content#<%= singular_name %>_show
+  %h1 
+    = link_to '<%= plural_name.titleize %>', <%= plural_name %>_path
+    > 
+    = @<%= singular_name %>.pretty_name
+
+  %p#notice= notice
+  
+  %p#edit_link= link_to 'Edit', edit_<%= singular_name %>_path(@<%= singular_name %>)
+
+<% for attribute in attributes -%>
+  %p.field#<%= attribute.name %>_field
+    %b.label= <%= class_name %>.human_attribute_name :<%= attribute.name %>
+<% if attribute.name =~ /\A(.+)_id\Z/ && association_name = $1 -%>
+    = link_to_association(@<%= singular_name %>, '<%= $1 %>')
+<% else -%>
+    %span.value= @<%= singular_name %>.<%= attribute.name %>
+<% end -%>
+<% end -%>

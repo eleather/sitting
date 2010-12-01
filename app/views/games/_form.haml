@@ -1,0 +1,36 @@
+#game_form
+  = form_for(@game) do |f|
+    - if @game.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@game.errors.count, 'error')} prohibited this user from being saved:"
+      
+        %ul
+          - @game.errors.full_messages.each do |msg|
+            %li= msg
+  
+    .field#name_field
+      = f.label :name
+      %br
+      = f.text_field :name
+    .field#server_address_field
+      = f.label :server_address
+      %br
+      = f.text_field :server_address
+    .field#started_at_field
+      = f.label :started_at
+      %br
+      = f.datetime_select :started_at
+    .field#ended_at_field
+      = f.label :ended_at
+      %br
+      = f.datetime_select :ended_at
+    .field#alliance_name_field
+      = f.label :alliance_name
+      %br
+      = f.text_field :alliance_name
+    .field#comments_field
+      = f.label :comments
+      %br
+      = f.text_area :comments
+    .actions
+      = f.submit
